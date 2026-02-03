@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shivani ❤️ Suyash</title>
+
+<style>
+body {
+  text-align:center;
+  font-family: Arial;
+  background: pink;
+  overflow:hidden;
+}
+
+h1 {
+  margin-top:100px;
+}
+
+button {
+  padding:12px 30px;
+  font-size:18px;
+  margin:15px;
+}
+
+.heart {
+  position:absolute;
+  color:red;
+  animation: float 6s infinite;
+}
+
+@keyframes float {
+  0% {bottom:0; opacity:1;}
+  100% {bottom:100%; opacity:0;}
+}
+
+#gif {
+ display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Shivani ❤️ Suyash</h2>
+
+<h1>Will you be my Valentine? 💕</h1>
+
+<button onclick="yesClick()">YES 💖</button>
+<button onclick="noClick()">NO 😜</button>
+
+<p id="msg"></p>
+
+<img id="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="300">
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+
+function noClick(){
+ document.getElementById("msg").innerHTML="Invalid Button 😁❤️";
+}
+
+function yesClick(){
+ document.getElementById("gif").style.display="block";
+ document.getElementById("msg").innerHTML="Happy Valentine Suyash 💕 Love you forever!";
+}
+
+setInterval(()=>{
+ let heart=document.createElement("div");
+ heart.innerHTML="❤️";
+ heart.className="heart";
+ heart.style.left=Math.random()*100+"%";
+ document.body.appendChild(heart);
+ setTimeout(()=>heart.remove(),6000);
+},300);
+
+</script>
+
+</body>
+</html>
