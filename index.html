@@ -1,80 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Shivani ❤️ Suyash</title>
+<title>Shivani ❤️ Suyudu</title>
 
 <style>
-body {
-  text-align:center;
-  font-family: Arial;
-  background: pink;
-  overflow:hidden;
+body{
+ text-align:center;
+ font-family:Arial;
+ background:#ffc0cb;
+ overflow:hidden;
 }
 
-h1 {
-  margin-top:100px;
+h1{margin-top:30px;}
+
+button{
+ padding:12px 30px;
+ font-size:18px;
+ margin:15px;
 }
 
-button {
-  padding:12px 30px;
-  font-size:18px;
-  margin:15px;
+#noBtn{
+ position:absolute;
 }
 
-.heart {
-  position:absolute;
-  color:red;
-  animation: float 6s infinite;
+.photo{
+ width:200px;
+ border-radius:50%;
+ box-shadow:0 0 15px red;
 }
 
-@keyframes float {
-  0% {bottom:0; opacity:1;}
-  100% {bottom:100%; opacity:0;}
+.heart,.kiss{
+ position:absolute;
+ animation:float 6s infinite;
 }
 
-#gif {
- display:none;
+@keyframes float{
+ 0%{bottom:0;opacity:1;}
+ 100%{bottom:100%;opacity:0;}
 }
 
+#gif{display:none;}
 </style>
 </head>
 
 <body>
 
-<h2>Shivani ❤️ Suyash</h2>
+<h2>Shivani ❤️ Suyudu</h2>
+
+<img src="couple.jpg" class="photo">
 
 <h1>Will you be my Valentine? 💕</h1>
 
 <button onclick="yesClick()">YES 💖</button>
-<button onclick="noClick()">NO 😜</button>
+<button id="noBtn" onmouseover="moveNo()">NO 😜</button>
 
 <p id="msg"></p>
 
-<img id="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="300">
-
-<audio autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-</audio>
+<img id="gif" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" width="300">
 
 <script>
 
-function noClick(){
- document.getElementById("msg").innerHTML="Invalid Button 😁❤️";
+function moveNo(){
+ let x=Math.random()*300;
+ let y=Math.random()*300;
+ document.getElementById("noBtn").style.left=x+"px";
+ document.getElementById("noBtn").style.top=y+"px";
 }
 
 function yesClick(){
  document.getElementById("gif").style.display="block";
- document.getElementById("msg").innerHTML="Happy Valentine Suyash 💕 Love you forever!";
+ typeText("Happy Valentine Suyudu 💕 तू माझं सर्वस्व आहेस ❤️ Forever together!");
+}
+
+function typeText(text){
+ let i=0;
+ let t=setInterval(()=>{
+  document.getElementById("msg").innerHTML+=text.charAt(i);
+  i++;
+  if(i>=text.length)clearInterval(t);
+ },60);
 }
 
 setInterval(()=>{
- let heart=document.createElement("div");
- heart.innerHTML="❤️";
- heart.className="heart";
- heart.style.left=Math.random()*100+"%";
- document.body.appendChild(heart);
- setTimeout(()=>heart.remove(),6000);
+ let h=document.createElement("div");
+ h.innerHTML="❤️";
+ h.className="heart";
+ h.style.left=Math.random()*100+"%";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
 },300);
+
+setInterval(()=>{
+ let k=document.createElement("div");
+ k.innerHTML="😘";
+ k.className="kiss";
+ k.style.left=Math.random()*100+"%";
+ document.body.appendChild(k);
+ setTimeout(()=>k.remove(),6000);
+},700);
 
 </script>
 
